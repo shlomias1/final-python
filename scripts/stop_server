@@ -1,4 +1,3 @@
 #!/bin/bash
-# Stop the Docker container running your app
 docker stop myapp || true
 docker rm myapp || true
