@@ -1,20 +1,4 @@
 #!/bin/bash
-# Update the package list and install updates
 sudo yum update -y
-
-# Install Docker if it's not already installed
-if ! command -v docker &> /dev/null
-then
-    echo "Docker not found, installing Docker..."
-    curl -fsSL https://get.docker.com -o get-docker.sh
-    sudo sh get-docker.sh
-fi
-
-# Ensure Docker is started
+sudo yum install -y docker
 sudo service docker start
-
-# Install Python3 and pip if needed (optional, based on your app)
-sudo yum install -y python3 python3-pip
-
-# Install Flask or other dependencies (if using Python/Flask app)
-pip3 install flask
