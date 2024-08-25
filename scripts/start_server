@@ -1,4 +1,4 @@
 #!/bin/bash
 docker stop myapp || true
 docker rm myapp || true
-docker run -d -p 80:5000 --name myapp your-docker-username/final-python:latest
+docker run -d -p 80:5000 --name myapp shlomias1/final-python:latest
