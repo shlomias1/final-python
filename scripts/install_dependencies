@@ -1,17 +1,16 @@
-
 #!/bin/bash
 
-# Update the package list
-sudo yum update -y
-
-# Install Docker if it's not already installed
+echo "Checking if Docker is installed..."
 if ! command -v docker &> /dev/null
 then
     echo "Docker not found, installing Docker..."
-    curl -fsSL https://get.docker.com -o get-docker.sh
-    sudo sh get-docker.sh
+    sudo amazon-linux-extras enable docker
+    sudo yum install -y docker
+    sudo systemctl start docker
+    sudo systemctl enable docker
+    sudo usermod -a -G docker ec2-user
+else
+    echo "Docker is already installed."
 fi
 
-# Start Docker service
-sudo service docker start
-
+echo "Docker installation completed."
