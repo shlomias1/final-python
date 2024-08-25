@@ -1,2 +1,10 @@
+
 #!/bin/bash
+
+# Stop any running container with the name "myapp"
+docker stop myapp || true
+docker rm myapp || true
+
+# Run the Docker container for the application
 docker run -d -p 80:5000 --name myapp shlomias1/final-python:latest
+
