@@ -1,4 +1,17 @@
+
 #!/bin/bash
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
+
+# Update the package list
+sudo yum update -y
+
+# Install Docker if it's not already installed
+if ! command -v docker &> /dev/null
+then
+    echo "Docker not found, installing Docker..."
+    curl -fsSL https://get.docker.com -o get-docker.sh
+    sudo sh get-docker.sh
+fi
+
+# Start Docker service
 sudo service docker start
+
