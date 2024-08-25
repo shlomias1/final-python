@@ -1,6 +1,6 @@
 #!/bin/bash
-cd /home/ec2-user/app
-docker pull shlomias1/final-python:latest
+# Stop any running container with the name "myapp"
 docker stop myapp || true
 docker rm myapp || true
+# Run the Docker container, exposing it on port 5000
 docker run -d -p 5000:5000 --name myapp shlomias1/final-python:latest
